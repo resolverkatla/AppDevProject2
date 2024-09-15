@@ -2,7 +2,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MaterialApp(
+    title: "MyApp",
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,14 +19,14 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.blue,
           // leading: Icon(Icons.),
-          title: Text("Agencia de Empeños"),
+          title: const Text("Oli"),
           centerTitle: true,
         ),
         body: Center(
           child: Padding(
-              padding: EdgeInsets.all(0),
+              padding: const EdgeInsets.all(0),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage("assets/images/bank.jpg"),
                          fit: BoxFit.cover,
@@ -32,10 +35,10 @@ class MyApp extends StatelessWidget {
                 // width: 400,
                 // height: 350,
                 // color: Colors.grey[200],
-                child: Padding(
+                child: const Padding(
                   padding: EdgeInsets.only(top: 20, left: 30, right: 30, bottom: 20),
                   child: Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra accumsan dui in pharetra. Phasellus sagittis ex non varius porttitor. Vivamus id metus enim. Cras consectetur risus vitae magna sodales elementum. Curabitur auctor diam in tortor fermentum dictum. Quisque maximus id sem sed ultricies. Donec eros ipsum, luctus sed lorem in, varius aliquet ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec rhoncus sem at mauris consequat interdum. Donec vitae justo in lectus pellentesque tempus. Phasellus viverra, justo ut ullamcorper interdum, metus lacus sodales nisl, non commodo leo tortor lacinia urna. Donec venenatis magna rutrum felis vestibulum euismod. Pellentesque eget nisl eget dolor commodo lobortis. Morbi est tellus, ultrices et eros vel, mollis sollicitudin lectus. Etiam molestie eleifend scelerisque.',
+                    "Hello",
                     style: TextStyle(
                       color: Colors.black,
                       // fontSize: 24.0,
@@ -50,33 +53,36 @@ class MyApp extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: <Widget>[
               UserAccountsDrawerHeader(
-                accountName: Text("John Wick"),
-                accountEmail: Text("johnwick99@gmail.com"),
+                accountName: const Text("Oliver Ladores"),
+                accountEmail: const Text("oliver.ladores@wvsu.edu.ph"),
                 currentAccountPicture: CircleAvatar(
                   backgroundColor: Colors.red[400],
-                  child: Text(
+                  child: const Text(
                     "W",
                     style: TextStyle(fontSize: 40.0),
                   ),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.home),
-                title: Text('Home'),
+                leading: const Icon(Icons.home),
+                title: const Text('Home'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyApp()),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.contacts),
+                title: const Text('Contact Us'),
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.contacts),
-                title: Text('Contact Us'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
+                leading: const Icon(Icons.settings),
+                title: const Text('Settings'),
                 onTap: () {
                   Navigator.pop(context);
                 },
