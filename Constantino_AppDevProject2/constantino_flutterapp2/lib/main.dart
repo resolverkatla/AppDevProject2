@@ -50,7 +50,8 @@ List<int> _randomDurations = List.generate(10, (index) => 3000);
       backgroundColor: Color.fromRGBO(131, 30, 90, 1),
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(131, 30, 90, 1),
-        title: Text('Walking duck simulator', style: TextStyle(fontFamily: "ComicSans" , color: Colors.white),),
+        title: Text('Walking duck simulator', 
+        style: TextStyle(fontFamily: "ComicSans" , color: Colors.white),),
       ),
       drawer: Drawer(
           child: ListView(
@@ -100,7 +101,7 @@ List<int> _randomDurations = List.generate(10, (index) => 3000);
                       path: i % 2 == 0 ? bezierPath1 : bezierPath2,
                        duration: _randomDurations.isNotEmpty ? Duration(milliseconds: _randomDurations[i]) : Duration(milliseconds: 3000),
                       curve: Curves.linear,
-                      repeat: false,
+                      repeat: true,
                       reverse: false,
                       drawPath: false,
                       startAnimatedPercent: 0,
@@ -113,13 +114,14 @@ List<int> _randomDurations = List.generate(10, (index) => 3000);
         )
         ),
         floatingActionButton: FloatingActionButton(
-              onPressed: () {
-              setState(() {
-              isAnimationVisible = !isAnimationVisible;
-              _randomDurations = List.generate(10, (index) => _randomInt(2750, 4500));
-                    }, 
-              );},
-              child: Icon(Icons.add)),
+          onPressed: () {
+            setState(() {
+             isAnimationVisible = !isAnimationVisible;
+             _randomDurations = List.generate(10, (index) => _randomInt(2750, 4500));
+                });
+               },
+            child: Icon(Icons.play_arrow),
+          ),
     );
   }
   
